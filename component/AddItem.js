@@ -22,9 +22,9 @@ function AddItem() {
 
   return (
     <View style={styles.inputContainer}>
-      <TouchableNativeFeedback background={TouchableNativeFeedback.Ripple('#fa0000', false)}><Button style={styles.button} title="Add" onPress={() => {
+<TouchableNativeFeedback background={TouchableNativeFeedback.Ripple('#fa0000', false)}><Button style={styles.button} title="Add" onPress={() => {
         setModalVisible(true);
-      }} /></TouchableNativeFeedback>
+      }} /></TouchableNativeFeedback>      
 
 
       <Modal
@@ -44,7 +44,7 @@ function AddItem() {
               onPress={() => setModalVisible(!modalVisible)}
               style={styles.icon}
             />
-
+          
             <Text style={styles.modalText}>Saisissez ce que vous voulez rajouter à la liste !</Text>
             <View style={styles.inputInModal}>
               <TextInput
@@ -121,8 +121,8 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     textAlign: 'center',
   },
-  icon: {
-    marginRight: 'auto',
+ icon:{
+  marginRight:'auto',
 
-  }
+}
 });

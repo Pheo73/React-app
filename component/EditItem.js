@@ -4,7 +4,7 @@ import { useItemStore } from '../store/Store';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 function EditItem() {
-  const { removeAndAddItem, editItemModalIsVisible, toggleEditItemModal, selectedItem } = useItemStore();
+  const { EditItem, editItemModalIsVisible, toggleEditItemModal, selectedItem } = useItemStore();
   const [inputValue, setInputValue] = useState('');
 
   useEffect(() => {
@@ -15,7 +15,7 @@ function EditItem() {
 
   const handleEditItem = () => {
     if (inputValue.trim() !== '') {
-      removeAndAddItem(selectedItem, inputValue); 
+      EditItem(selectedItem, inputValue); 
       setInputValue('');
       toggleEditItemModal(false);
     }

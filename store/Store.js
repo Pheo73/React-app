@@ -13,18 +13,23 @@ export const useItemStore = create((set) => ({
     { key: 'Organiser un meetup autour de la tech' },
     { key: 'Faire un triathlon' },
   ],
-  addItem: (newItem) =>
+  addItem: (item) =>
     set((state) => ({
-      data: [...state.data, { key: newItem }],
+      data: [...state.data, { key: item }],
     })),
   removeItem: (itemToRemove) =>
     set((state) => ({
       data: state.data.filter((item) => item !== itemToRemove),
     })),
-    removeAndAddItem: (itemToRemove, newItem) =>
-    set((state) => ({
-      data: [...state.data.filter((item) => item !== itemToRemove), { key: newItem }],
-    })),
+    EditItem: (itemToEdit, newItemValue) => {
+      set((state) => {
+        const newData = state.data.filter((item) => item.key !== itemToEdit.key); 
+        const index = state.data.findIndex((item) => item.key === itemToEdit.key); 
+        newData.splice(index, 0, { key: newItemValue });
+  
+        return { data: newData };
+      });
+    },
   editItemModalIsVisible: false,
 
   toggleEditItemModal: (isVisible) =>
