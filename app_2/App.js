@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import { ImageBackground, ScrollView, View, Text } from "react-native";
 import CurrentWeather from "./CurrentWeather";
-import ForecastList from "./ForecastList";
+import List from "./List";
 import * as Location from "expo-location";
 import styles from "./styles";
 
@@ -144,7 +144,7 @@ export default function App() {
           <ScrollView contentContainerStyle={styles.container}>
             <CurrentWeather data={data} temp={temp} icon={icon} />
             <Text style={styles.today}>{forecastData.length > 0 && forecastData[0].dt_txt.slice(0, 11)}</Text>
-            <ForecastList
+            <List
               forecastData={forecastData}
               groupForecastByDay={groupForecastByDay}
               formatDate={formatDate}

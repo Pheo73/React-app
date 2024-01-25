@@ -1,9 +1,9 @@
 import React from "react";
 import { View, Text, FlatList } from "react-native";
-import ForecastItem from "./ForecastItem";
+import Item from "./Item";
 import styles from "./styles";
 
-const ForecastList = ({ forecastData, groupForecastByDay, formatDate }) => {
+const List = ({ forecastData, groupForecastByDay, formatDate }) => {
   return (
     <View style={styles.flatList}>
       {groupForecastByDay().map((dayForecast, index) => (
@@ -13,7 +13,7 @@ const ForecastList = ({ forecastData, groupForecastByDay, formatDate }) => {
             data={dayForecast}
             keyExtractor={(item) => item.dt.toString()}
             horizontal
-            renderItem={({ item }) => <ForecastItem item={item} />}
+            renderItem={({ item }) => <Item item={item} />}
           />
         </View>
       ))}
@@ -21,4 +21,4 @@ const ForecastList = ({ forecastData, groupForecastByDay, formatDate }) => {
   );
 };
 
-export default ForecastList;
+export default List;

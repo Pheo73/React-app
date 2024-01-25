@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, Image } from "react-native";
 import styles from "./styles";
 
-const ForecastItem = ({ item }) => (
+const Item = ({ item }) => (
   <View style={styles.item}>
     <Text style={styles.hour}>{item.dt_txt.slice(11, 16)}</Text>
     <Image
@@ -15,4 +15,4 @@ const ForecastItem = ({ item }) => (
   </View>
 );
 
-export default ForecastItem;
+export default Item;
