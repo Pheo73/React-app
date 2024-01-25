@@ -16,14 +16,10 @@ export default function App() {
   const [forecastData, setForecastData] = useState([]);
   const [lat, setLat] = useState(null);
   const [lon, setLon] = useState(null);
-  const [errorMsg, setErrorMsg] = useState(null);
-  const [weather, setWeather] = useState(null);
   const [temp, setTemp] = useState(null);
   const [icon, setIcon] = useState({ uri: null });
-  const [today, setToday] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const roundTemp = Math.round(temp);
 
   useEffect(() => {
     const getLocation = async () => {
