@@ -82,20 +82,7 @@ export default function App() {
     };
 
     fetchForecast();
-  }, [lat]);
-
-  const renderForecastItem = ({ item }) => (
-    <View style={styles.item}>
-      <Text style={styles.hour}>{item.dt_txt.slice(11, 16)}</Text>
-      <Image
-        source={{
-          uri: `https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`,
-        }}
-        style={styles.iconList}
-      />
-      <Text style={styles.tempList}>{item.main.temp}°C</Text>
-    </View>
-  );
+  }, [lat,data]);
 
   const groupForecastByDay = () => {
     const groupedForecast = [];
@@ -127,13 +114,14 @@ export default function App() {
 
     return date.toLocaleDateString("fr-FR", options);
   };
+  
 
   return (
     <ImageBackground source={image} style={styles.background}>
-      {loading && data === null ? (
-        <View style={styles.loaderContainer}>
+      {loading && data === null && forecastData === null ? (
+        <ScrollView contentContainerStyle={styles.loaderContainer}>
           <Text style={styles.loaderText}>Loading...</Text>
-        </View>
+        </ScrollView>
       ) : (
         data &&
         forecastData && (
